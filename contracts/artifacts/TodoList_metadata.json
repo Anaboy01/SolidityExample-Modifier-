@@ -6,15 +6,28 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_address",
-						"type": "address"
-					}
-				],
+				"inputs": [],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "title",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum TodoList.Status",
+						"name": "status",
+						"type": "uint8"
+					}
+				],
+				"name": "TodoCreated",
+				"type": "event"
 			},
 			{
 				"inputs": [
@@ -81,6 +94,29 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_index",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_title",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_desc",
+						"type": "string"
+					}
+				],
+				"name": "updateTodo",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -111,11 +147,11 @@
 	},
 	"sources": {
 		"contracts/Todo.sol": {
-			"keccak256": "0x8c1bff08eb48562ee204e2ddaadbdd3697370dd6b6ffca06ed614954721bd864",
+			"keccak256": "0x005db8b97584f97b1a642ce582f596f30b884551a3fa150e766086a9775d4240",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://9fac9ab57ed360c3c95b32d9183ce25f232c76dd7f9c1fb2cfad0b926ca2ffed",
-				"dweb:/ipfs/QmTf4KJqeGCAmNyaGqKGipEvsgwZ7ZtcinppUGWh1xqcUq"
+				"bzz-raw://6c0faacfb66ded99d16122df8b08ba29f6c642f835fe95dc175b51f306106996",
+				"dweb:/ipfs/Qmbsk3KUaz1YJZfpijf5Q7f5ppBaKtaGJnMSjf9nqZaQJw"
 			]
 		}
 	},

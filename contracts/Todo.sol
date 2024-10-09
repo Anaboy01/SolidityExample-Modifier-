@@ -4,6 +4,7 @@ pragma solidity ^0.8.27;
 contract TodoList{
 
     address public owner;
+    
 
     enum Status {None, Created, Edited, Done}
 
@@ -15,8 +16,8 @@ contract TodoList{
 
     Todo[] public todos;
 
-    constructor(address _address){
-        owner = _address;    
+    constructor(){
+        owner = msg.sender;    
     }
 
     modifier onlyOwner(){
@@ -29,7 +30,32 @@ contract TodoList{
         _;
     }
 
-    function createTodo(string memory _title, string memory _desc) external onlyOwner returns(bool){
+    event TodoCreated(string title, Status status);
 
+    function createTodo(string memory _title, string memory _desc) external onlyOwner  validAddress returns(bool){
+
+        Todo memory mytodo;
+
+        mytodo.title = _title;
+
+        mytodo.description = _desc;
+
+        mytodo.status = Status.Created;
+
+        todos.push(mytodo);
+
+        emit TodoCreated(_title, Status.Created);
+
+        return true;
+
+    }
+
+
+    function updateTodo(uint _index, string memory _title, string memory _desc) external onlyOwner validAddress {
+        require(_index < todos.length, "Index is out of bound");
+
+        Todo storage mytodo = todos[_index];
+        mytodo.title = _title;
+        mytodo.description = _desc;
     }
 }
