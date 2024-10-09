@@ -15,12 +15,21 @@ contract TodoList{
 
     Todo[] public todos;
 
-    constructor(){
-        owner = msg.sender;    
+    constructor(address _address){
+        owner = _address;    
     }
 
     modifier onlyOwner(){
         require(msg.sender == owner, "You're not allowed");
+        _; 
+    }
+
+    modifier validAddress(){
+        require(msg.sender != address(0), "Zero address not allowed");
         _;
+    }
+
+    function createTodo(string memory _title, string memory _desc) external onlyOwner returns(bool){
+
     }
 }

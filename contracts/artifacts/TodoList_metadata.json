@@ -6,9 +6,39 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_address",
+						"type": "address"
+					}
+				],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_title",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_desc",
+						"type": "string"
+					}
+				],
+				"name": "createTodo",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			},
 			{
 				"inputs": [],
@@ -81,11 +111,11 @@
 	},
 	"sources": {
 		"contracts/Todo.sol": {
-			"keccak256": "0x073b47b695337b831baeea72c1cdbe5eab4917343984c40d71c140e602cc42ac",
+			"keccak256": "0x8c1bff08eb48562ee204e2ddaadbdd3697370dd6b6ffca06ed614954721bd864",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://944a0264f8a2668d0bfc9bafbf552580b54f5d5545b719e24f429a6f5a312100",
-				"dweb:/ipfs/QmQRBdbvLRY74JrYmHC23AdWTaZvta2oJczqiTx8SCQuro"
+				"bzz-raw://9fac9ab57ed360c3c95b32d9183ce25f232c76dd7f9c1fb2cfad0b926ca2ffed",
+				"dweb:/ipfs/QmTf4KJqeGCAmNyaGqKGipEvsgwZ7ZtcinppUGWh1xqcUq"
 			]
 		}
 	},
