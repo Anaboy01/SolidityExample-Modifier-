@@ -24,10 +24,54 @@
 						"internalType": "enum TodoList.Status",
 						"name": "status",
 						"type": "uint8"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "_message",
+						"type": "string"
 					}
 				],
 				"name": "TodoCreated",
 				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "title",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum TodoList.Status",
+						"name": "status",
+						"type": "uint8"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "_message",
+						"type": "string"
+					}
+				],
+				"name": "TodoUpdated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint8",
+						"name": "_index",
+						"type": "uint8"
+					}
+				],
+				"name": "comotTodo",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			},
 			{
 				"inputs": [
@@ -55,6 +99,65 @@
 			},
 			{
 				"inputs": [],
+				"name": "getAllTodo",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "title",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "description",
+								"type": "string"
+							},
+							{
+								"internalType": "enum TodoList.Status",
+								"name": "status",
+								"type": "uint8"
+							}
+						],
+						"internalType": "struct TodoList.Todo[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint8",
+						"name": "_index",
+						"type": "uint8"
+					}
+				],
+				"name": "getTodo",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "enum TodoList.Status",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "owner",
 				"outputs": [
 					{
@@ -64,6 +167,25 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint8",
+						"name": "_index",
+						"type": "uint8"
+					}
+				],
+				"name": "todoDonDo",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -147,11 +269,11 @@
 	},
 	"sources": {
 		"contracts/Todo.sol": {
-			"keccak256": "0x005db8b97584f97b1a642ce582f596f30b884551a3fa150e766086a9775d4240",
+			"keccak256": "0xaccf25b90d3612a2684ae9854e26d7208752eb5f26b70c57ebd6483ddde6b679",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://6c0faacfb66ded99d16122df8b08ba29f6c642f835fe95dc175b51f306106996",
-				"dweb:/ipfs/Qmbsk3KUaz1YJZfpijf5Q7f5ppBaKtaGJnMSjf9nqZaQJw"
+				"bzz-raw://58a40a2e7535ecaa4b3e3297424c6f2f6775a9d24b343c49416c109ae449759d",
+				"dweb:/ipfs/QmVNvGta8LJ9MeM9BDUpW7EEAzadZycZX8HU5j1AiR5ThC"
 			]
 		}
 	},

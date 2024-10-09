@@ -30,7 +30,8 @@ contract TodoList{
         _;
     }
 
-    event TodoCreated(string title, Status status);
+    event TodoCreated(string title, Status status, string _message);
+       event TodoUpdated(string title, Status status, string _message);
 
     function createTodo(string memory _title, string memory _desc) external onlyOwner  validAddress returns(bool){
 
@@ -44,12 +45,13 @@ contract TodoList{
 
         todos.push(mytodo);
 
-        emit TodoCreated(_title, Status.Created);
+        emit TodoCreated(_title, Status.Created, "A list have been created");
 
         return true;
 
     }
 
+ 
 
     function updateTodo(uint _index, string memory _title, string memory _desc) external onlyOwner validAddress {
         require(_index < todos.length, "Index is out of bound");
@@ -57,5 +59,40 @@ contract TodoList{
         Todo storage mytodo = todos[_index];
         mytodo.title = _title;
         mytodo.description = _desc;
+        mytodo.status = Status.Edited;
+
+        emit TodoUpdated(_title, Status.Edited, "A list have been updated");
+    }
+
+    function getTodo(uint8 _index) external view validAddress returns(string memory, string memory, Status){
+
+        require(_index < todos.length, "Index is out of bound");
+
+        Todo memory mytodo =todos[_index];
+
+        return (mytodo.title, mytodo.description, mytodo.status);
+
+    }
+
+    function getAllTodo()external view validAddress returns (Todo[] memory){
+        return todos;
+    }
+
+    function todoDonDo(uint8 _index) external validAddress returns (bool){
+          require(_index < todos.length, "Index is out of bound");
+          Todo storage mytodo = todos[_index];
+
+          mytodo.status = Status.Done;
+
+          return  true;
+
+    }
+
+    function comotTodo(uint8 _index) external onlyOwner validAddress{
+          require(_index < todos.length, "Index is out of bound");
+
+          todos[_index] = todos[todos.length - 1];
+
+          todos.pop();
     }
 }
